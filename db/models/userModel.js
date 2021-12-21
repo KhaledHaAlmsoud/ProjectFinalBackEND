@@ -5,7 +5,8 @@ const userModel = new mongoose.Schema({
   email: { type: String ,unique:true },
   password: { type: String },
   phone: {type: Number},
-  product:[{type: mongoose.Schema.Types.ObjectId, ref: 'storeModel' }]
-});
+}); 
 
-module.exports = mongoose.model("userModel", userModel);
+
+module.exports = mongoose.model("userModel", userModel); 
+
