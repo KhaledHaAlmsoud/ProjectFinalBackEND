@@ -1,9 +1,12 @@
 const express = require("express");
 const productRoute = express.Router();
 
-const { addProduct } = require("../controllers/Product")
+const { addProduct , getProduct , deleteProduct } = require("../controllers/Product")
 const {authentication} = require("../middlewares/authentication")
 
-productRoute.post ("/product",authentication , addProduct); 
+productRoute.post ("/Product", authentication , addProduct ); 
+productRoute.get ("/Product", getProduct );
+productRoute.delete ("/Product/:id", authentication , deleteProduct );
+// id = عشان ناخذ اي شي بعد السلاش .
 
-module.exports = productRoute ; 
+module.exports = productRoute ;  

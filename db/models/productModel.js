@@ -1,10 +1,11 @@
 const mongoose = require("mongoose");
 
 const productModel = new mongoose.Schema ({ 
+    ownerName: { type: String},
     title: { type: String },
     des: { type: String },
     img: { type: String },
-    price:{ type:Number }, 
+    price:{ type: String }, 
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'userModel' }
 
   //  schema user ناخذها كاملة . 
