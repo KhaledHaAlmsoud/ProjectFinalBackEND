@@ -5,9 +5,7 @@ const userModel = require("../../db/models/userModel")
 
 const Login = async (req,res)=>{
 const { email , password } = req.body;
-
 console.log(email , password);
-
 
 try {
     const user = await userModel.findOne ({email: email});
@@ -24,7 +22,7 @@ try {
     // 
     const token = jwt.sign (payload, "KH");
     // بعد التشفير ينشى التوكن 
-    res.status(200).json ({token}) 
+    res.status(200).json ({token , userId : user._id}) 
     // يشفر التوكن ويرسله للفرونت اند بعد تسجيل الدخول 
     // componets == login
 } };
