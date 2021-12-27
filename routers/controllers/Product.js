@@ -7,6 +7,7 @@ const { ownerName , title , des , img , price  } = req.body;
 
 
 const user = req.token.userId;
+// نجيب اليوزر عن طريق التوكن 
 
 const nweProduct = new productModel ({ ownerName , title , des , img , price , user }); 
 // ينشى بسكيما المنتج البيانات اللي اخذناها من الفرونت اند .
@@ -27,7 +28,7 @@ try {
 const getProduct = async (req,res)=>{
   // console.log("Send Me Data");
 try {
-  const products = await productModel.find({}).populate("user");
+  const products = await productModel.find({}).populate("user"); 
   //findOne = يرجع عنصر واحد عبارة عن اوبجكت .
   //find = يرجع ارري - مجموعة عناصر .
   res.status(200).json(products);
@@ -47,8 +48,9 @@ const user = req.token.userId;
 // console.log("deleteProduct");
 // عشان احذف المنتج الخاص باليوزر .
 try {
-const deleteOne = await productModel.findOneAndDelete ({ _id: id , user:user })
+const deleteOne = await productModel.findOneAndDelete ({ _id: id , user:user }) 
 const products = await productModel.find({}).populate("user");
+// يرجع الارري بعد الحذف ويغني عن الكوبي بالفرونت اند 
 res.status(200).json(products)
 
 } catch (error) {
@@ -56,7 +58,22 @@ res.status(200).json(products)
   // console.log("Remove Product!");
 } };
 
+const updateProduct = async (req, res)=>{
+  let { ownerName , title , des , img , price  } = req.body; 
+  const {id} = req.params;
+  //نجيب الايدي من البرامس 
+  const user = req.token.userId;
+  // نجيب اليوزر عن طريق التوكن 
+  try { 
+  const Products = await productModel.findOneAndUpdate ( {_id:id }, { ownerName , title , des , img , price } , {new:true}).populate("user")
+  //الاوبجكت الاول الايدي من الداتا بيس والبرامس والاوبجكت الثاني البيانات اللي نعدل عليها من البدي والابجكت الثالث عشان نحفظ التعديل الجديد 
+  //البابيوليت عشان بيانات اليوزر اللي عدل على المنتج 
+  res.status(200).json(Products); 
+  } catch (error) {
+    res.status(404).json(error);
+  } }; 
 
-module.exports= { addProduct , getProduct , deleteProduct };  
+
+module.exports= { addProduct , getProduct , deleteProduct , updateProduct };  
 
 

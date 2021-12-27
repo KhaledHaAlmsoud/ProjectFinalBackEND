@@ -6,7 +6,7 @@ const productModel = new mongoose.Schema ({
     des: { type: String },
     img: { type: String },
     price:{ type: String }, 
-    user: { type: mongoose.Schema.Types.ObjectId, ref: 'userModel' }
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'userModel' } 
 
   //  schema user ناخذها كاملة . 
  // عن طريق البوب يليت عشان يجيب اوبجكت اليوزر كامل 
