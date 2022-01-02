@@ -4,8 +4,10 @@ const cartModel = new mongoose.Schema ({
 
 
 user: { type : mongoose.Schema.Types.ObjectId, ref: 'userModel' },
-items: [{ type : mongoose.Schema.Types.ObjectId, ref: 'productModel' }]
+items: [{ type : mongoose.Schema.Types.ObjectId, ref: 'productModel' }],
+Counter: {type : Number }
 
 });
 
-module.exports = mongoose.model("cartModel", cartModel);
+module.exports = mongoose.model("cartModel", cartModel); 
+
