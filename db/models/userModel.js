@@ -5,7 +5,7 @@ const userModel = new mongoose.Schema({
   email: { type: String ,unique:true },
   password: { type: String },
   phone: {type: Number},
-  // img:{type:String, default:"https://www.clipartmax.com/png/small/296-2969961_no-image-user-profile-icon.png"}
+  img: {type:String, default:"https://www.clipartmax.com/png/small/296-2969961_no-image-user-profile-icon.png"}
 }); 
 
 

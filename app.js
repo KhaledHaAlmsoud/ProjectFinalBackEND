@@ -12,8 +12,8 @@ const productRoute = require ("./routers/routes/RouteProduct")
 const RouteUsers = require ("./routers/routes/RouteUsers");
 const devicesRoute = require ("./routers/routes/RouteDevices");
 const clothingRoute = require ("./routers/routes/RouteClothing");
-const perfumesRoute = require ("./routers/routes/RoutePerfumes")
-
+const perfumesRoute = require ("./routers/routes/RoutePerfumes");
+const cartRoute = require ("./routers/routes/RouteCart");
 
 app.use(devicesRoute)
 app.use( signUpRoute );
@@ -22,6 +22,8 @@ app.use( productRoute );
 app.use( RouteUsers );
 app.use( clothingRoute );
 app.use( perfumesRoute );
+app.use( cartRoute );
+
 
 const Port = 5000;
 app.listen(Port,()=> {

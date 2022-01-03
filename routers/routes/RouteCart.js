@@ -1,11 +1,11 @@
-// const express = require("express");
-// const cartRoute = express.Router();
+const express = require("express");
+const cartRoute = express.Router();
 
-// const { getItemCart , postItemCart , deltItemCart } = require("../controllers/cart")
-// const {authentication} = require("../middlewares/authentication")
+const {   postCart , getCart  } = require("../controllers/cart")
+const {authentication} = require("../middlewares/authentication")
 
-// cartRoute.post ("/Cart/:id", authentication , postItemCart ); 
-// // cartRoute.get ("/itemCart", authentication , getItemCart );
-// // cartRoute.delete ("/itemCart/:id", authentication , deltItemCart );
+cartRoute.post ("/cart/:id", authentication , postCart ); 
+cartRoute.get ("/cart", authentication , getCart );
+// cartRoute.delete ("/Cart/:id", authentication , deleteCart );
 
-// module.exports = cartRoute ;  
+module.exports = cartRoute ;  

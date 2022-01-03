@@ -5,7 +5,7 @@ const cartModel = new mongoose.Schema ({
 
 user: { type : mongoose.Schema.Types.ObjectId, ref: 'userModel' },
 items: [{ type : mongoose.Schema.Types.ObjectId, ref: 'productModel' }],
-Counter: {type : Number }
+counter: {type : Number }
 
 });
 
