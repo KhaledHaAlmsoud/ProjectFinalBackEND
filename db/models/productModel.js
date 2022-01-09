@@ -11,6 +11,6 @@ const productModel = new mongoose.Schema ({
   //  schema user ناخذها كاملة . 
  // عن طريق البوب يليت عشان يجيب اوبجكت اليوزر كامل 
 
-});
+}); 
 
 module.exports = mongoose.model("productModel", productModel);

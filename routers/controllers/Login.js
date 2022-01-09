@@ -16,13 +16,13 @@ try {
     // == 2 = هو الباسوورد الاصلي اللي بـ (signup)
     if (check === true){
         // اذا كان التحقق صحيح ... 
-    const payload = {userId : user._id , userName : user.name };
+    const payload = {userId : user._id , userName : user.name ,admin:user.admin};
     // key عرف المتغير وعطه 2 
     //  object - معلومات التوكن قبل التشفير ) التوكن قبل التشفير يعتبر )
     // 
     const token = jwt.sign (payload, "KH");
     // بعد التشفير ينشى التوكن 
-    res.status(200).json ({token , userId : user._id}) 
+    res.status(200).json ({token , payload,userId : user._id}) 
     // يشفر التوكن ويرسله للفرونت اند بعد تسجيل الدخول 
     // componets == login
 } };
