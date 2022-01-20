@@ -47,7 +47,7 @@ const getProduct = async (req, res) => {
     res.status(404).json(error);
   }
 };
-////////////////
+////////////////////////////////////
 
 const getOneProduct = async (req, res) => {
   const { id } = req.params;
@@ -71,15 +71,16 @@ const deleteProduct = async (req, res) => {
   try {
     // const useradmin = await userModel.findOne({ _id: user });
     // if (useradmin.admin == true) {
+      // اذا الادمين ترو احذف 
       const deleteOne = await productModel.findOneAndDelete({
         _id: id,
-        user: user,
+      
       });
       const products = await productModel.find({}).populate("user");
       // يرجع الارري بعد الحذف ويغني عن الكوبي بالفرونت اند
       res.status(200).json(products);
     // } else {
-      res.send("you are not admin");
+    //   res.send("you are not admin");
     // }
   } catch (error) {
     res.status(error);

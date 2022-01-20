@@ -4,6 +4,7 @@ const cartModel = require("../../db/models/cartModel");
 
 const addSignUp = async (req, res) => {
   let { name, email, password, phone, admin } = req.body;
+  // من اجل تعيين قيمة الادمين يدويا 
   console.log(name, email, password, phone);
 
   try {

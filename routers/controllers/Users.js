@@ -1,5 +1,4 @@
 const userModel = require("../../db/models/userModel");
-
 ///////
 const profile = async(req,res)=>{
 const user = req.token.userId;

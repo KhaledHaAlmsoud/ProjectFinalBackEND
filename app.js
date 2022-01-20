@@ -1,32 +1,27 @@
+require('dotenv').config()
 const express = require("express");
 const app = express();
 const cors = require("cors");
 require("./db/db");
-
 app.use(express.json());
 app.use(cors());
+
 
 const signUpRoute = require ("./routers/routes/RouteSignUp");
 const loginRoute = require ("./routers/routes/RouteLogin");
 const productRoute = require ("./routers/routes/RouteProduct")
 const RouteUsers = require ("./routers/routes/RouteUsers");
-const devicesRoute = require ("./routers/routes/RouteDevices");
-const clothingRoute = require ("./routers/routes/RouteClothing");
-const perfumesRoute = require ("./routers/routes/RoutePerfumes");
 const cartRoute = require ("./routers/routes/RouteCart");
 
-app.use(devicesRoute)
+
 app.use( signUpRoute );
 app.use( loginRoute );
 app.use( productRoute );
 app.use( RouteUsers );
-app.use( clothingRoute );
-app.use( perfumesRoute );
 app.use( cartRoute );
 
-
-const Port = 5000;
-app.listen(Port,()=> {
+// console.log(process.env.PORT);
+// const Port =  process.env.PORT || 5000; 
+app.listen(process.env.PORT,()=> {
 console.log("server is running");
-
  } );
